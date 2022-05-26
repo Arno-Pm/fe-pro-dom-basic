@@ -7,14 +7,13 @@ export const paintCards = () => {
 
 
 export const findElement = () => {
-    const FirstStep = document.querySelectorAll('li');
-    let NumberOneLi = document.querySelector('ul > li:first-child');
-    for (let i = 0; i < FirstStep.length; i++) {
-        let nextLI = NumberOneLi.nextElementSibling;
-        if (nextLI.matches('.item.likedItem')) {
-            nextLI.style.backgroundColor = 'blue';
-          } else {
-            NumberOneLi = nextLI;
-          }
+    let elemli = document.querySelector('li');
+    while (elemli) {
+        if (elemli.matches('.likedItem')) {
+            elemli.style.backgroundColor = 'blue';
+            break
+        } else {
+            elemli = elemli.nextElementSibling;
         }
-      };
+    }
+}
